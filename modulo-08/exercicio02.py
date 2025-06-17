@@ -18,3 +18,20 @@ class Pessoa():
 pessoa1 = Pessoa("Sarah", "Maceió", "82990000000", "email@email.com")
 pessoa1.informacoes()
 pessoa1.cumprimentar()
+
+"""
+class Pessoa():
+    
+    def __init__(self, nome, cidade, telefone, email):
+        self.nome = nome
+        self.cidade = cidade
+        self.telefone = telefone
+        self.email = email
+        print("Objeto criado")
+        
+    def __str__(self):
+        return "O usuário " + self.nome + " mora na cidade " + self.cidade
+
+P1 = Pessoa("Pele", "Três Corações", 99887766, "pele@gmail.com")
+str(P1)
+"""

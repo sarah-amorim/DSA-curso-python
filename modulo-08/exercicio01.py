@@ -15,8 +15,17 @@ class Rocket():
     def print_rocket(self):
         print(self.x, self.y)
 
-roc1 = Rocket(10, 21)
+roc1 = Rocket(10, 20)
 print(roc1.x)
 print(roc1.y)
-roc1.move_rocket()
+roc1.move_rocket(50, 80)
 roc1.print_rocket()
+
+"""
+roc1 = Rocket(10,34)
+roc1.x
+roc1.y
+roc1.print_rocket()
+roc1.move_rocket(12, 44)
+roc1.print_rocket()
+"""

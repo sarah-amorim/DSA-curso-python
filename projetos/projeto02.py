@@ -19,3 +19,15 @@ df[df.duplicated()] # Retorna verdadeiro para cada linha que tiver valor duplica
 df.isnull().sum() # Total de valores nulos para cada coluna 
 # Valores ausentes são um problema! 
 
+# Qual Cidade com Maior Valor de Venda de Produtos da Categoria 'Office Supplies'?
+
+# Filtramos o dataframe com os registros da categoria que desejamos
+df1 = df[df['Categoria'] == 'Office Suplies']
+# Agrupamos por cidade e calculamos o total de valor_vendas
+df1_cidade_valor = df1.groupby('Cidade')['Valor_Venda'].sum()
+# Encontramos a cidade com maior número de vendas 
+cidade_maior_venda = df1_cidade_valor.idxmax()
+# Para conferir o resultado 
+df1_cidade_valor.sort_values(ascending=False) 
+
+# Qual o Total de Vendas Por Data do Pedido? Demonstre o resultado através de um gráfico de barras.

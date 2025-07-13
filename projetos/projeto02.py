@@ -31,3 +31,25 @@ cidade_maior_venda = df1_cidade_valor.idxmax()
 df1_cidade_valor.sort_values(ascending=False) 
 
 # Qual o Total de Vendas Por Data do Pedido? Demonstre o resultado através de um gráfico de barras.
+df2 = df('Data_Pedido')['Valor_Venda'].sum()
+df2.head()
+# Plot 
+plt.figure(figsize= (20,6))
+df2.plot(x = 'Data_Pedido', y = 'Valor_Venda', color = 'green')
+plt.title('Total de Vendas Por Data Pedido')
+plt.show()
+
+# Qual Total de Vendas por Estado? Demonstre o resultado através de um gráfico de barras.
+df3 = df('Estado')['Valor_Venda'].sum().reset_index()
+plt.figure(figsize=(16,6))
+sns.barplot(data = df3, y = 'Valor_Venda', x = 'Estado').set(title='Vendas Por Estado')
+plt.xticks(rotation = 80)
+plt.show()
+
+# Quais São as 10 Cidades Com Maior Total de Vendas? Demonstre o resultado atráves de um gráfico de barras.
+df4 = df.groupby('Cidade')['Valor_Venda'].sum().reset_index().sort_values(by = 'Valor_Venda', ascending=False).head(10)
+plt.figure(figsize=(16,6))
+snd.barplot(data=df4, x = 'Cidade', y='Valor_Venda').set(title='As 10 cidades com maior total de vendas')
+plt.show()
+
+# Qual Segmento Tem o Maior Total de Vendas? Demonstre o resultado atráves de  um gráfico  de pizza

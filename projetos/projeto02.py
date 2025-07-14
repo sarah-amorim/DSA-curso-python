@@ -53,3 +53,5 @@ snd.barplot(data=df4, x = 'Cidade', y='Valor_Venda').set(title='As 10 cidades co
 plt.show()
 
 # Qual Segmento Tem o Maior Total de Vendas? Demonstre o resultado atráves de  um gráfico  de pizza
+pd.options.display.float_format = '{:,.4f}'.format # print with default float settings
+df5 = df.groupby('Segmento')['Valor_Venda'].sum().reset_index().sort_values(by = 'Valor_Venda', ascending=False)

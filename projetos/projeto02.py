@@ -57,3 +57,9 @@ pd.options.display.float_format = '{:,.4f}'.format # print with default float se
 df5 = df.groupby('Segmento')['Valor_Venda'].sum().reset_index().sort_values(by = 'Valor_Venda', ascending=False)
 plt.pie(df5['Valor_Venda'], labels=df5['Segmento'], startangle=90)
 plt.show()
+
+# Qual o Total de Vendas Por Segmento e Por Ano?
+df['Data_Pedido'] = pd.to_datetime(df['Data_Pedido'], dayfirst=True) # Converte as datas de object para datetime
+df['Ano'] = df['Data_Pedido'].dt.year # Cria a coluna 'Ano'
+df6 = df.groupby(['Ano','Segmento'])['Valor_Venda'].sum()
+

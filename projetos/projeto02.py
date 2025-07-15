@@ -55,3 +55,5 @@ plt.show()
 # Qual Segmento Tem o Maior Total de Vendas? Demonstre o resultado atráves de  um gráfico  de pizza
 pd.options.display.float_format = '{:,.4f}'.format # print with default float settings
 df5 = df.groupby('Segmento')['Valor_Venda'].sum().reset_index().sort_values(by = 'Valor_Venda', ascending=False)
+plt.pie(df5['Valor_Venda'], labels=df5['Segmento'], startangle=90)
+plt.show()
